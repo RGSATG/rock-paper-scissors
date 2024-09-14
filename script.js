@@ -67,4 +67,12 @@ function playGame() {
     }
 }
 
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+
 playGame();
