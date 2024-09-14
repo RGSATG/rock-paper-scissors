@@ -5,7 +5,7 @@ function getComputerChoice() {
     let randomNumber = Math.random();
     if (randomNumber < 1 / 3) {
         return "rock";
-    } else if (randomNumber > 1 / 3 && randomNumber< 2 / 3) {
+    } else if (randomNumber > 1 / 3 && randomNumber < 2 / 3) {
         return "paper";
     } else {
         return "scissors";
@@ -14,13 +14,11 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let userInput = prompt("Choose between rock, paper or scissors! \n\nPlease type in your answer in all lower case.");
-    if (userInput === "rock") {
+    if (userInput.toLowerCase() === "rock") {
         return "rock";
-    } else if (userInput === "paper") {
+    } else if (userInput.toLowerCase() === "paper") {
         return "paper";
-    } else if (userInput === "scissors") {
+    } else if (userInput.toLowerCase() === "scissors") {
         return "scissors";
-    } else {
-        return "This input is not valid, your choice should be all lower case";
     }
 }
