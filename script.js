@@ -54,3 +54,17 @@ function playRound(humanChoice, computerChoice) {
         console.log("It's a draw, try again!\nThe current score is ${humanScore} (You) to ${computerScore} (Computer)");
     }
 }
+
+function playGame() {
+    console.log("This is a rock, paper, scissors tournament. The first player to reach a score of 5 is the winner!")
+    while (!(humanScore === 5 || computerScore === 5)) {
+        playRound();
+    }
+    if (computerScore === 5) {
+        console.log("Unfortunately you lost, maybe you will have more luck next time")
+    } else {
+        console.log("Congratulations, you won! You are the champion of rock, paper scissors!")
+    }
+}
+
+playGame();
