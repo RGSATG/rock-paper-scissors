@@ -51,7 +51,7 @@ function playRound(humanChoice, computerChoice) {
     if (result && result !== "draw") {
         console.log(`You ${result}! ${strongerChoice[0].toUpperCase() + strongerChoice.substring(1)} beats ${weakerChoice[0].toUpperCase() + weakerChoice.substring(1)}\nThe current score is ${humanScore} (You) to ${computerScore} (Computer)`);
     } else if (result) {
-        console.log("It's a draw, try again!\nThe current score is ${humanScore} (You) to ${computerScore} (Computer)");
+        console.log(`It's a draw, try again!\nThe current score is ${humanScore} (You) to ${computerScore} (Computer)`);
     }
 }
 
