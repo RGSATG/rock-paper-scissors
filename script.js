@@ -22,3 +22,35 @@ function getHumanChoice() {
         return "scissors";
     }
 }
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = getHumanChoice();
+    computerChoice = getComputerChoice();
+    let result;
+    let strongerChoice;
+    let weakerChoice;
+    if (humanChoice === "rock" && computerChoice === "paper" ||
+        humanChoice === "paper" && computerChoice === "scissors" ||
+        humanChoice === "scissors" && computerChoice === "rock") {
+        result = "lose"
+        computerScore += 1;
+        strongerChoice = computerChoice;
+        weakerChoice = humanChoice;
+    } else if ((humanChoice === "rock" && computerChoice === "rock" ||
+        humanChoice === "paper" && computerChoice === "paper" ||
+        humanChoice === "scissors" && computerChoice === "scissors")) {
+            result = "draw";
+    } else if (humanChoice){
+        result = "win";
+        humanScore += 1;
+        strongerChoice = humanChoice;
+        weakerChoice = computerChoice;
+    } else {
+        console.log("Wrong input, try again please")
+    }
+    if (result && result !== "draw") {
+        console.log(`You ${result}! ${strongerChoice[0].toUpperCase() + strongerChoice.substring(1)} beats ${weakerChoice[0].toUpperCase() + weakerChoice.substring(1)}\nThe current score is ${humanScore} (You) to ${computerScore} (Computer)`);
+    } else if (result) {
+        console.log("It's a draw, try again!\nThe current score is ${humanScore} (You) to ${computerScore} (Computer)");
+    }
+}
