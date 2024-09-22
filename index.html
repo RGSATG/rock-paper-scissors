@@ -6,16 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock paper scissors game</title>
     <link rel="stylesheet" href="/styles.css">
-    <script src="script.js"></script>
+    
     <script src="https://kit.fontawesome.com/abf92ac93c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <h1>Willkommen zur Schere Stein Papier Weltmeisterschaft!</h1>
-    <section id="gameSection">
-        <div id="playerContainer"></div>
-        <div id="computerContainer"></div>
-    </section>
+<section id="gameSection">
+    <div id="gameDiv">
+        <div id="playerContainer">
+            <div id="rockButton" class="selectorButton">Stein</div>
+            <div id="paperButton" class="selectorButton">Papier</div>
+            <div id="scissorsButton" class="selectorButton">Schere</div>
+        </div>
+        <div id="computerContainer">
+            <p id="computerText"></p>
+        </div>
+    </div>
+    <p id="gameText">Drücke einen Knopf um zu spielen!</p>
+</section>
 </body>
-
+<script src="script.js"></script>
 </html>

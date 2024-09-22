@@ -1,5 +1,12 @@
 let computerScore = 0;
 let humanScore = 0;
+let computerChoice;
+const rockButton = document.getElementById("rockButton");
+const paperButton = document.getElementById("paperButton");
+const scissorsButton = document.getElementById("scissorsButton");
+const computerText = document.getElementById("computerText");
+const gameText = document.getElementById("gameText");
+
 
 function getComputerChoice() {
     let randomNumber = Math.random();
@@ -12,21 +19,17 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let userInput = prompt("Wähle zwischen Schere, Stein und Papier");
-    if (userInput.toLowerCase() === "stein") {
-        return "stein";
-    } else if (userInput.toLowerCase() === "papier") {
-        return "papier";
-    } else if (userInput.toLowerCase() === "schere") {
-        return "schere";
-    }
-}
+
+rockButton.addEventListener("click", () => playRound("stein", getComputerChoice()));
+paperButton.addEventListener("click", () => playRound("papier", getComputerChoice()));
+scissorsButton.addEventListener("click", () => playRound("schere", getComputerChoice()));
+
+
 
 function playRound(humanChoice, computerChoice) {
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
-    let result;
+   
+if (!(humanScore === 5 || computerScore === 5)) {
+         let result;
     let strongerChoice;
     let weakerChoice;
     if (humanChoice === "stein" && computerChoice === "papier" ||
@@ -45,34 +48,17 @@ function playRound(humanChoice, computerChoice) {
         humanScore += 1;
         strongerChoice = humanChoice;
         weakerChoice = computerChoice;
-    } else {
-        console.log("Du hast etwas falsches eingetippt")
-    }
+    } 
     if (result && result !== "draw") {
-        console.log(`Du ${result}! ${strongerChoice[0].toUpperCase() + strongerChoice.substring(1)} ist stärker als ${weakerChoice[0].toUpperCase() + weakerChoice.substring(1)}\nDer Spielstand ist ${humanScore} (Du) zu ${computerScore} (Computer)`);
+        gameText.textContent = `Du ${result}! ${strongerChoice[0].toUpperCase() + strongerChoice.substring(1)} ist stärker als ${weakerChoice[0].toUpperCase() + weakerChoice.substring(1)}\nDer Spielstand ist ${humanScore} (Du) zu ${computerScore} (Computer)`;
     } else if (result) {
-        console.log(`Unentschieden! Versuche es nochmal\nDer Spielstand ist ${humanScore} (Du) zu ${computerScore} (Computer)`);
+        gameText.textContent = `Unentschieden! Versuche es nochmal\nDer Spielstand ist ${humanScore} (Du) zu ${computerScore} (Computer)`;
     }
-}
-
-function playGame() {
-    console.log("Willkommen bei der Schere, Stein, Papier Weltmeisterschaft! Wer zuerst 5 Punkte hat gewinnt.")
-    while (!(humanScore === 5 || computerScore === 5)) {
-        playRound();
+    computerText.textContent = computerChoice;
     }
     if (computerScore === 5) {
-        console.log("Du hast leider verloren... Vielleicht hast du nächstes Mal mehr Glück!")
-    } else {
-        console.log("Gratulation, du hast gewonnen! Du bist nun der offizielle Weltmeister in Schere, Stein, Papier.")
+        gameText.textContent = "Du hast leider verloren... Vielleicht hast du nächstes Mal mehr Glück!";
+    } else if (humanScore === 5) {
+        gameText.textContent = "Gratulation, du hast gewonnen! Du bist nun der offizielle Weltmeister in Schere, Stein, Papier.";
     }
 }
-
-console.log(" ");
-console.log(" ");
-console.log(" ");
-console.log(" ");
-console.log(" ");
-console.log(" ");
-console.log(" ");
-
-playGame();
